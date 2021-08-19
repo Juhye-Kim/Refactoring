@@ -11,15 +11,15 @@ function statement(invoice, plays) {
   }).format;
 
   for (let perf of invoice[0].performances) {
-    const play = playFor(perf);
-    let thisAmount = amountFor(perf, play); // 추출한 함수 활용
+    let thisAmount = amountFor(perf, playFor(perf)); // 추출한 함수 활용
 
     // 포인트 적립
     volumeCredits += Math.max(perf.audience - 30, 0);
     // 희극 관객 5명마다 추가 포인트 제공
-    if ("comedy" === play.type) volumeCredits += Math.floor(perf.audience / 5);
+    if ("comedy" === playFor(perf).type)
+      volumeCredits += Math.floor(perf.audience / 5);
 
-    result += `${play.name}: ${format(thisAmount / 100)} (${
+    result += `${playFor(perf).name}: ${format(thisAmount / 100)} (${
       perf.audience
     }석\n)`;
     totalAmount += thisAmount;
