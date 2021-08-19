@@ -11,7 +11,7 @@ function statement(invoice, plays) {
   }).format;
 
   for (let perf of invoice[0].performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     let thisAmount = amountFor(perf, play); // 추출한 함수 활용
 
     // 포인트 적립
@@ -27,6 +27,11 @@ function statement(invoice, plays) {
   result += `총액: ${format(totalAmount / 100)}\n`;
   result += `적립 포인트: ${volumeCredits}점\n`;
   return result;
+
+  // 임시변수를 질의변수로 바꾸기
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+  }
 
   // 중첩함수
   function amountFor(aPerformance, play) {
