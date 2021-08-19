@@ -11,7 +11,7 @@ function statement(invoice, plays) {
   }).format;
 
   for (let perf of invoice[0].performances) {
-    let thisAmount = amountFor(perf, playFor(perf)); // 추출한 함수 활용
+    let thisAmount = amountFor(perf); // 추출한 함수 활용
 
     // 포인트 적립
     volumeCredits += Math.max(perf.audience - 30, 0);
