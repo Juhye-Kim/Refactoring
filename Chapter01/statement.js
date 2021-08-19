@@ -12,14 +12,18 @@ function statement(invoice, plays) {
     totalAmount += amountFor(perf);
   }
 
-  // 값 누적 로직을 별도의 for문으로 분리
-  for (let perf of invoice.performances) {
-    volumeCredits += volumeCreditsFor(perf);
-  }
-
+  let volumeCredits = totalVolumeCredits(); // 값 계산 로직을 함수로 추출
   result += `총액: ${usd(totalAmount)}\n`;
   result += `적립 포인트: ${volumeCredits}점\n`;
   return result;
+
+  function totalVolumeCredits() {
+    let volumeCredits = 0;
+    for (let perf of invoice.performances) {
+      volumeCredits += volumeCreditsFor(perf);
+    }
+    return volumeCredits;
+  }
 
   function usd(aNumber) {
     return new Intl.NumberFormat("en-US", {
