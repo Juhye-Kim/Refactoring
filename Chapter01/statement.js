@@ -31,8 +31,6 @@ function statement(invoice, plays) {
       default:
         throw new Error(`알 수 없는 장르: ${play.type}`);
     }
-    let thisAmount = amountFor(perf, play);
-
     // 포인트 적립
     volumeCredits += Math.max(perf.audience - 30, 0);
     // 희극 관객 5명마다 추가 포인트 제공
