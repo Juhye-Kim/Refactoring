@@ -5,8 +5,14 @@ function statement(invoice, plays) {
   return renderPlainText(statementData, plays);
 
   function enrichPerformance(aPerformance) {
-    const result = Object.assign({}, aPerformance); // 얕은복사
+    const result = Object.assign({}, aPerformance);
+    result.play = playFor(result);
     return result;
+  }
+
+  // renderPlainText 중첩함수였는데 여기로 옮김
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
   }
 }
 
@@ -55,12 +61,6 @@ function renderPlainText(data, plays) {
     return result;
   }
 
-  // 임시변수를 질의변수로 바꾸기
-  function playFor(aPerformance) {
-    return plays[aPerformance.playID];
-  }
-
-  // 중첩함수
   function amountFor(aPerformance) {
     let result = 0;
     switch (playFor(aPerformance).type) {
