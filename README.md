@@ -5,3 +5,4 @@
 ### Chapter
 
 [01. 리팩터링: 첫 번째 예시](./Chapter01/chapter1.md)
+[02. 리팩터링 원칙](./Chapter02/README.md)
