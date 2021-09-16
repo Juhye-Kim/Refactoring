@@ -16,14 +16,17 @@ function printOwing(invoice) {
     today.getDate() + 30
   );
 
-  // 세부사항 출력
-  console.log(`고객명: ${invoice.customer}`);
-  console.log(`채무액: ${outstanding}`);
-  console.log(`마감일: ${invoice.dueDate.toLocaleDateString()}`);
+  printDetails();
 }
 
 function printBanner() {
   console.log("*************");
   console.log("****고객채무***");
   console.log("*************");
+}
+
+function printDetails() {
+  console.log(`고객명: ${invoice.customer}`);
+  console.log(`채무액: ${outstanding}`);
+  console.log(`마감일: ${invoice.dueDate.toLocaleDateString()}`);
 }
