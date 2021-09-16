@@ -1,10 +1,7 @@
 function printOwing(invoice) {
-  printBanner();
   let outstanding = 0;
 
-  console.log("*************");
-  console.log("****고객채무***");
-  console.log("*************");
+  printBanner();
 
   // 미채결 채무(outstanding) 게산
   for (const o of invoice.orders) {
@@ -23,4 +20,10 @@ function printOwing(invoice) {
   console.log(`고객명: ${invoice.customer}`);
   console.log(`채무액: ${outstanding}`);
   console.log(`마감일: ${invoice.dueDate.toLocaleDateString()}`);
+}
+
+function printBanner() {
+  console.log("*************");
+  console.log("****고객채무***");
+  console.log("*************");
 }
