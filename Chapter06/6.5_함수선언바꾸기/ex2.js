@@ -4,6 +4,10 @@ class Book {
   }
 
   addReservation(customer) {
+    this.zz_addReservations(customer);
+  }
+
+  zz_addReservations(customer) {
     this._reservations.push(customer);
   }
 }
