@@ -1,5 +1,12 @@
 let tpHd = "untitled";
 
-result += `<h1>${tpHd}</h1>`;
+result += `<h1>${title()}</h1>`;
 
-tpHd = obj["articleTitle"];
+SVGTextPositioningElement(obj["articleTitle"]);
+
+function title() {
+  return tpHd;
+}
+function setTitle(arg) {
+  tpHd = arg;
+}
