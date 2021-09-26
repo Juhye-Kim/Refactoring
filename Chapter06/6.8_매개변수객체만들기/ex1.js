@@ -23,3 +23,16 @@ alerts = readingsOutsideRange(
   operatingPlan.temperatureFloor,
   operatingPlan.temperatureCeiling
 );
+
+// 데이터 묶음 표현하는 클래스
+class NumberRange {
+  constructor(min, max) {
+    this._data = { min, max };
+  }
+  get min() {
+    return this._data.min;
+  }
+  get max() {
+    return this._data.max;
+  }
+}
