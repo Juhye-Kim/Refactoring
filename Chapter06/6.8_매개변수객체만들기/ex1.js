@@ -18,11 +18,16 @@ function readingsOutsideRange(station, min, max, range) {
 }
 
 // 호출문
+const range = new NumberRange(
+  operatingPlan.temperatureFloor,
+  operatingPlan.temperatureCeiling
+);
+
 alerts = readingsOutsideRange(
   station,
   operatingPlan.temperatureFloor,
   operatingPlan.temperatureCeiling,
-  null
+  range
 );
 
 // 데이터 묶음 표현하는 클래스
