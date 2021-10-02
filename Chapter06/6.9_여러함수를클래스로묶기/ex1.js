@@ -2,13 +2,14 @@
 reading = { customer: "ivan", qauantity: 10, month: 5, year: 2017 };
 
 // client 1
-const aReading = acquireReading();
-const baseCharge = baseRate(aReading.month, aReading.year) * aReading.qauantity;
+const rawReading = acquireReading();
+const aReading = new Reading(rawReading);
+const baseCharge = aReading.baseCharge;
 
 // client 2
-const aReading = acquireReading();
-const base = baseRate(aReading.month, aReading.year) * aReading.qauantity;
-const taxableCharge = Mathc.max(0, base - taxThreshold(aReading.year));
+const rawReading = acquireReading();
+const aReading = new Reading(rawReading);
+const taxableCharge = Mathc.max(0, aReading.baseCharge - taxThreshold(aReading.year));
 
 // client 3
 const rawReading = acquireReading();
