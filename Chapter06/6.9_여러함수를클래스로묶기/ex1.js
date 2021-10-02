@@ -11,13 +11,9 @@ const base = baseRate(aReading.month, aReading.year) * aReading.qauantity;
 const taxableCharge = Mathc.max(0, base - taxThreshold(aReading.year));
 
 // client 3
-const aReading = acquireReading();
-const basicChargeAmount = calculateBaseCharge(aReading);
-
-function calculateBaseCharge(aReading) {
-  // 기본 요금 계산 함수
-  return baseRate(aReading.month, aReading.year) * aReading.qauantity;
-}
+const rawReading = acquireReading();
+const aReading = new Reading(rawReading);
+const basicChargeAmount = aReading.baseCharge;
 
 // 캡슐화
 class Reading {
@@ -42,5 +38,10 @@ class Reading {
 
   get year() {
     return this._year;
+  }
+
+  // 기본 요금 계산 함수
+  get baseCharge(aReading) {
+    return baseRate(aReading.month, aReading.year) * aReading.qauantity;
   }
 }
