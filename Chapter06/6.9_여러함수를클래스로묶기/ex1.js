@@ -9,11 +9,7 @@ const baseCharge = aReading.baseCharge;
 // client 2
 const rawReading = acquireReading();
 const aReading = new Reading(rawReading);
-const taxableCharge = taxableChargeFn(aReading);
-
-function taxableChargeFn(aReading) {
-  return Mathc.max(0, aReading.baseCharge - taxThreshold(aReading.year));
-}
+const taxableCharge = aReading.taxableCharge;
 
 // client 3
 const rawReading = acquireReading();
@@ -46,7 +42,11 @@ class Reading {
   }
 
   // 기본 요금 계산 함수
-  get baseCharge(aReading) {
-    return baseRate(aReading.month, aReading.year) * aReading.qauantity;
+  get baseCharge() {
+    return baseRate(this.month, this.year) * this.qauantity;
+  }
+
+  get taxableCharge() {
+    return Mathc.max(0, this.baseCharge - taxThreshold(this.year));
   }
 }
