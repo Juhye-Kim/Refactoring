@@ -6,30 +6,18 @@ function priceOrder(product, quantity, shippingMethod) {
     Math.max(quantity - product.discountThreshold, 0) *
     product.basePrice *
     product.discountRate;
-  const priceData = {}; // 중간 데이터 구조
-  const price = applyShipping(
-    priceData,
-    basePrice,
-    shippingMethod,
-    quantity,
-    discount
-  );
+  const priceData = { basePrice, quantity, discount }; // 중간 데이터 구조
+  const price = applyShipping(priceData, shippingMethod);
   return price;
 }
 
 // 배송정보를 이용해 배송비 계산
-function applyShipping(
-  priceData,
-  basePrice,
-  shippingMethod,
-  quantity,
-  discount
-) {
+function applyShipping(priceData, shippingMethod) {
   const shippingPerCase =
-    basePrice > shippingMethod.discountThreshold
+    priceData.basePrice > shippingMethod.discountThreshold
       ? shippingMethod.discountedFee
       : shippingMethod.feePerCase;
-  const shippingCost = quantity * shippingPerCase;
-  const price = basePrice - discount + shippingCost;
+  const shippingCost = priceData.quantity * shippingPerCase;
+  const price = priceData.basePrice - priceData.discount + shippingCost;
   return price;
 }
