@@ -1,8 +1,7 @@
 // 상품 결제 금액 계산
 function priceOrder(product, quantity, shippingMethod) {
   const priceData = calculatePricingData(product, quantity);
-  const price = applyShipping(priceData, shippingMethod);
-  return price;
+  return applyShipping(priceData, shippingMethod);
 }
 
 // 상품정보를 이용해 상품가격 계산
@@ -22,6 +21,5 @@ function applyShipping(priceData, shippingMethod) {
       ? shippingMethod.discountedFee
       : shippingMethod.feePerCase;
   const shippingCost = priceData.quantity * shippingPerCase;
-  const price = priceData.basePrice - priceData.discount + shippingCost;
-  return price;
+  return priceData.basePrice - priceData.discount + shippingCost;
 }
