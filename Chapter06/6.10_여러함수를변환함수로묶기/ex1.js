@@ -10,10 +10,7 @@ const baseCharge = aReading.baseCharge;
 // client2
 const rawReading = acquireReading();
 const aReading = enrichReading(rawReading);
-const taxableCharge = Math.max(
-  0,
-  aReading.baseCharge - taxThreshold(aReading.year)
-);
+const taxableCharge = aReading.taxableCharge;
 
 // client3
 const rawReading = acquireReading(); // 미가공 측정값
@@ -24,6 +21,10 @@ const baseChargeAmount = aReading.baseCharge;
 function enrichReading(original) {
   const result = _.cloneDeep(original);
   result.baseCharge = calculateBaseCharge(result);
+  result.taxableCharge = Math.max(
+    0,
+    aReading.baseCharge - taxThreshold(aReading.year)
+  );
   return result;
 
   function calculateBaseCharge(aReading) {
