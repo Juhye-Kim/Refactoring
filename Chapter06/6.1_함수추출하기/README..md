@@ -9,3 +9,10 @@
 - 함수를 짧게, 몇줄만 담도록 작성하는 습관 들이기
   - 대신 이름짓기에 신경써야함!
 - 함수 호출이 많아져서 성능이 느려질까 걱정 ㄴㄴ (요즘은 그럴일이 거의 없다.)
+- Clock Wrapper
+    ```js
+    const today = Clock.today;
+    invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30)
+    ```
+    - Date.now() 처럼 시스템시간을 알려주는 함수는 직접 호출하지 않는다.
+    - 직접 호출하면 테스트할 때마다 결과가 달라져 오류 상황을 재현하기 어렵다.

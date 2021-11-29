@@ -23,3 +23,22 @@ function amountOverdue(aDateRange) {}
 - 이 데이터 구조를 활용하는 형태로 프로그램 동작 자체를 재구성할 수도 있다.
   - ex. 데이터에 공통으로 적용되는 동작을 추출해 함수로 만들기
     - 새로운 추상개념으로 만들고, 코드의 개념적인 그림을 다시 그려볼 수 있음!
+
+### 진정한 값 객체로 거듭나기
+
+> 매개변수 그룹을 객체로 교체하기
+> 
+- 온도 범위 관련 객체
+    - 온도가 허용 범위 안에 있는지 검사하는 '동치성(equaility) 검사 메서드' 추가
+  ```js
+  class NumberRange {
+    constructor(min, max) {
+      this._data = {min, max};
+    }
+
+    get min() { return this._data.min; }
+    get max() { return this._data.max; }
+
+    contains(arg) { return (arg > this.min && arg < this.max); }
+  }
+  ```

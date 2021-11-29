@@ -8,9 +8,11 @@ let defaultOwner = { firstName: "마틴", lastName: "파울러" };
 
 // after
 let defaultOwnerData = { firstName: "마틴", lastName: "파울러" };
+
 export function defaultOwner() {
   return defaultOwnerData;
 }
+
 export function setDefaultOwner(arg) {
   defaultOwnerData = arg;
 }
@@ -26,6 +28,8 @@ export function setDefaultOwner(arg) {
   - = 데이터 유효범위가 넓을수록 캡슐화해야 한다. (`데이터 캡슐화`)
   - 데이터 재구성 대신 함수를 재구성!
   - 데이터 변경, 사용을 감시하는 확실한 통로 역할
+    - getter, setter
+      - getter가 복제본을 반환하도록 처리하면, 클라이언트는 게터로 얻은 데이터를 변경할 수 있지만, 원본에는 아무 영향을 주지 못하게 됨  
     - 변경 전 검증이나, 변경 후 추가로직을 쉽게 끼워넣을 수 있음
   - 객체지향에서 객체 데이터를 `private`으로 유지하는 이유
   - 불변 데이터는 데이터 변경될 일이 거의 없어서, 가변 데이터보다 캡슐화할 이유가 적다!
