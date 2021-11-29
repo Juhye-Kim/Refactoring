@@ -12,15 +12,17 @@ const base = baseRate(aReading.month, aReading.year) * aReading.quantity;
 const taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
 
 // client3
-const aReading = acquireReading();
-const baseChargeAmount = calculateBaseCharge(aReading);
+const rawReading = acquireReading(); // 미가공 측정값
+const aReading = enrichReading(rawReading);
+const baseChargeAmount = aReading.baseCharge;
 
-function calculateBaseCharge(aReading) {
-  return baseRate(aReading.month, aReading.year) * aReading.quantity;
-}
-
-// 파생 정보 계산 로직 한데 모으기
+// 변환 함수
 function enrichReading(original) {
   const result = _.cloneDeep(original);
+  result.baseCharge = calculateBaseCharge(result);
   return result;
+
+  function calculateBaseCharge(aReading) {
+    return baseRate(aReading.month, aReading.year) * aReading.quantity;
+  }
 }
