@@ -9,3 +9,4 @@
 - [03. 코드에서 나는 악취](./Chapter03/README.md)
 - [04. 테스트 구축하기](./Chapter04/README.md)
 - [06. 기본적인 리팩터링](./Chapter06/README.md)
+- [07. 캡슐화](./Chapter07/README.md)
