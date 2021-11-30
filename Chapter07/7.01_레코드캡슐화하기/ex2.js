@@ -31,18 +31,18 @@ function setRawDataOfCustomers(arg) {
   customerData = new CustomerData(arg);
 }
 
-function setUsage(customerID, year, month, amount) {
-  getRawDataOfCustomers()[customerID].usages[year][month] = amount;
-}
-
 class CustomerData {
   constructor(data) {
     this._data = data;
   }
+
+  setUsage(customerID, year, month, amount) {
+    this._data[customerID].usages[year][month] = amount;
+  }
 }
 
 // write
-setUsage(customerID, year, month, amount);
+getCustomerData().setUsage(customerID, year, month, amount);
 
 // read
 function compareUsage(customerID, laterYear, month) {
