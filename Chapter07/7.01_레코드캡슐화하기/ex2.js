@@ -39,6 +39,14 @@ class CustomerData {
   setUsage(customerID, year, month, amount) {
     this._data[customerID].usages[year][month] = amount;
   }
+
+  get rawData() {
+    return _.cloneDeep(this._data); // lodash
+  }
+
+  usage(customerID, year, month) {
+    return this._data[customerID].usages[year][month];
+  }
 }
 
 // write
@@ -46,7 +54,7 @@ getCustomerData().setUsage(customerID, year, month, amount);
 
 // read
 function compareUsage(customerID, laterYear, month) {
-  const later = customerData[customerID].usages[laterYear][month];
-  const earlier = customerData[customerID].usages[laterYear - 1][month];
+  const later = getCustomerData().usage(customerID, laterYear, month);
+  const earlier = getCustomerData().usage(customerID, laterYear - 1, month);
   return { laterAmount: later, change: later - earlier };
 }
