@@ -31,6 +31,10 @@ function setRawDataOfCustomers(arg) {
   customerData = new CustomerData(arg);
 }
 
+function setUsage(customerID, year, month, amount) {
+  getRawDataOfCustomers()[customerID].usages[year][month] = amount;
+}
+
 class CustomerData {
   constructor(data) {
     this._data = data;
@@ -38,7 +42,7 @@ class CustomerData {
 }
 
 // write
-customerData[customerID].usages[year][month] = amount;
+setUsage(customerID, year, month, amount);
 
 // read
 function compareUsage(customerID, laterYear, month) {
