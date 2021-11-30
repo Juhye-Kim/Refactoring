@@ -3,10 +3,6 @@ const organization = new Organization({
   country: "GB",
 });
 
-function getRawDataOfOrganization() {
-  return organization._data;
-}
-
 function getOrganization() {
   return organization;
 }
@@ -15,7 +11,15 @@ class Organization {
   constructor(data) {
     this._data = data;
   }
+
+  get name() {
+    return this._data.name;
+  }
+
+  set name(aString) {
+    this._name = aString;
+  }
 }
 
-result += `<h1>${getRawDataOfOrganization().name}</h1>`; // read
-getRawDataOfOrganization().name = newName; // write
+result += `<h1>${getOrganization().name}</h1>`; // read
+getOrganization().name = newName; // write
