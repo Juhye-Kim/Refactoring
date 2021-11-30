@@ -19,6 +19,24 @@ const customerData = {
   },
 };
 
+function getCustomerData() {
+  return customerData;
+}
+
+function getRawDataOfCustomers() {
+  return customerData._data;
+}
+
+function setRawDataOfCustomers(arg) {
+  customerData = new CustomerData(arg);
+}
+
+class CustomerData {
+  constructor(data) {
+    this._data = data;
+  }
+}
+
 // write
 customerData[customerID].usages[year][month] = amount;
 
