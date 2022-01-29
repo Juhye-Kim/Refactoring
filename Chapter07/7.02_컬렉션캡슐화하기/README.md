@@ -41,3 +41,18 @@ class Person {
 3. 컬렉션을 참조하는 부분 수정 + test
 4. 컬렉션 getter 수정 + test
    - 읽기전용 proxy나 복제본 반환
+
+### Javascript Error 객체 종류
+
+- RangeError
+  - 어떤 값이 집합에 없거나 허용되는 범위가 아닐 때 오류
+- InternalError
+  - JavaScript 엔진 내부에서 발생한 오류
+- ReferenceError
+  - 존재하지 않는 변수를 참조했을 때 발생하는 에러
+- SyntaxError
+  - 문법적으로 유효하지 않은 코드를 해석하려고 시도할 때 발생하는 오류
+- TypeError
+  - 일반적으로 값이 기대하던 자료형이 아니라서 연산을 할 수 없을 때 발생하는 오류
+- URIError
+  - 전역 URI 핸들링 함수가 잘못된 방식으로 사용되었을 때의 오류
