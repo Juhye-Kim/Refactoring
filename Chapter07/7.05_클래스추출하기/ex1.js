@@ -13,7 +13,7 @@ class Person {
   }
 
   get telephoneNumber() {
-    return this._telephoneNumber.telephoneNumber;
+    return this._telephoneNumber.toString();
   }
 
   get officeAreaCode() {
@@ -34,23 +34,23 @@ class Person {
 }
 
 class TelephoneNumber {
-  get telephoneNumber() {
-    return `${this.officeAreaCode} ${this.officeNumber}`;
+  toString() {
+    return `${this.areaCode} ${this.number}`;
   }
 
-  get officeAreaCode() {
-    return this._officeAreaCode;
+  get areaCode() {
+    return this._areaCode;
   }
 
-  set officeAreaCode(arg) {
-    this._officeAreaCode = arg;
+  set areaCode(arg) {
+    this._areaCode = arg;
   }
 
-  get officeNumber() {
-    return this._officeNumber;
+  get number() {
+    return this._number;
   }
 
-  set officeNumber(arg) {
-    this._officeNumber = arg;
+  set number(arg) {
+    this._number = arg;
   }
 }
