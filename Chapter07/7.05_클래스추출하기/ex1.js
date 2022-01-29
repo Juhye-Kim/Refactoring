@@ -1,6 +1,7 @@
 class Person {
   constructor(name) {
     this._name = name;
+    this._telephoneNumber = new TelephoneNumber();
   }
 
   get name() {
@@ -15,14 +16,6 @@ class Person {
     return `${this.officeAreaCode} ${this.officeNumber}`;
   }
 
-  get officeAreaCode() {
-    return this._officeAreaCode;
-  }
-
-  set officeAreaCode(arg) {
-    this._officeAreaCod = arg;
-  }
-
   get officeNumber() {
     return this._officeNumber;
   }
@@ -32,4 +25,12 @@ class Person {
   }
 }
 
-class TelephoneNumber {}
+class TelephoneNumber {
+  get officeAreaCode() {
+    return this._officeAreaCode;
+  }
+
+  set officeAreaCode(arg) {
+    this._officeAreaCod = arg;
+  }
+}
