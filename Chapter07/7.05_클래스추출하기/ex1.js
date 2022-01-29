@@ -17,19 +17,19 @@ class Person {
   }
 
   get officeAreaCode() {
-    return this._telephoneNumber.officeAreaCode;
+    return this._telephoneNumber.areaCode;
   }
 
   set officeAreaCode(arg) {
-    this._telephoneNumber.officeAreaCode = arg;
+    this._telephoneNumber.areaCode = arg;
   }
 
   get officeNumber() {
-    return this._telephoneNumber.officeNumber;
+    return this._telephoneNumber.number;
   }
 
   set officeNumber(arg) {
-    this._telephoneNumber.officeNumber = arg;
+    this._telephoneNumber.number = arg;
   }
 }
 
