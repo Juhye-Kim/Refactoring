@@ -13,7 +13,7 @@ class Person {
   }
 
   get telephoneNumber() {
-    return `${this.officeAreaCode} ${this.officeNumber}`;
+    return this._telephoneNumber.telephoneNumber;
   }
 
   get officeAreaCode() {
@@ -34,6 +34,10 @@ class Person {
 }
 
 class TelephoneNumber {
+  get telephoneNumber() {
+    return `${this.officeAreaCode} ${this.officeNumber}`;
+  }
+
   get officeAreaCode() {
     return this._officeAreaCode;
   }
