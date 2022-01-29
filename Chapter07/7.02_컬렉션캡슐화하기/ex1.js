@@ -32,4 +32,7 @@ class Course {
   }
 }
 
+const basicCourseNames = readBasicCourseNames(filename);
+aPerson.courses = basicCourseNames.map((name) => new Course(name, false));
+
 const numAdvancedCourses = aPerson.courses.filter((c) => c.isAdvanced).length;
