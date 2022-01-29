@@ -3,7 +3,7 @@ class Order {
     this._priority = data.priority;
   }
 
-  get priority() {
+  get priorityString() {
     return this._priority.toString();
   }
 
@@ -24,5 +24,5 @@ class Priority {
 
 // client
 const highPriorityCount = orders.filter(
-  (o) => "high" === o.priority || "rush" === o.priority
+  (o) => "high" === o.priorityString || "rush" === o.priorityString
 ).length;
