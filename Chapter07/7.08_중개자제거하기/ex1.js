@@ -6,7 +6,6 @@ class Person {
     get name() {return this._name;}
     get department() {this._department;}
     set department(arg) {this._department = arg;}
-    get manager() {this._department.manager;}
 }
 
 class Department {
