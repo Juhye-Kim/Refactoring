@@ -2,16 +2,12 @@ class Account {
     // 은행 이자 계산
     get bankCharge() {
         let result = 4.5;
-        if (this._daysOverdrawn < 0) result += this.overdraftCharge;
+        if (this._daysOverdrawn < 0) result += this.type.overdraftCharge(this.daysOverdrawn);
         return result;
     }
 
     get daysOverdrawn() {
         return this._daysOverdrawn;
-    }
-
-    get overdraftCharge() {
-        return this.type.overdraftCharge(this.daysOverdrawn);
     }
 }
 
