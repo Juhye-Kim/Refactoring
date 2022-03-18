@@ -6,6 +6,10 @@ class Account {
         return result;
     }
 
+    get daysOverdrawn() {
+        return this._daysOverdrawn;
+    }
+
     // 초과 인출 이자 계산
     get overdraftCharge() {
         if (this.type.isPremium) {
