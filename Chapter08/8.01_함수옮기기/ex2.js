@@ -10,18 +10,24 @@ class Account {
         return this._daysOverdrawn;
     }
 
-    // 초과 인출 이자 계산
     get overdraftCharge() {
+        return this.type.overdraftCharge(this.daysOverdrawn);
+    }
+}
+
+class AccountType {
+    // 초과 인출 이자 계산
+    overdraftCharge(daysOverdrawn) {
         if (this.type.isPremium) {
             const baseCharge = 10;
-            if (this.daysOverdrawn <= 7) {
+            if (daysOverdrawn <= 7) {
                 return baseCharge;
             }
             else {
-                return baseCharge + (this.daysOverdrawn - 7) * 0.85;
+                return baseCharge + (daysOverdrawn - 7) * 0.85;
             }
         } else {
-            return this.daysOverdrawn * 1.75;
+            return daysOverdrawn * 1.75;
         }
-    }
+    }    
 }
