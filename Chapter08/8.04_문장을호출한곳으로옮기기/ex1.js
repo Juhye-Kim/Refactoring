@@ -15,7 +15,11 @@ function listRecentPhotos(outStream, photos) {
 }
 
 function emitPhotoData(outStream, photo) {
+    zztmp(outStream, photo);
+    outStream.write(`<p>위치: ${photo.location}</p>\n`);
+}
+
+function zztmp(outStream, photo) {
     outStream.write(`<p>제목: ${photo.title}</p>\n`);
     outStream.write(`<p>날짜: ${photo.date.toDateString()}</p>\n`);
-    outStream.write(`<p>위치: ${photo.location}</p>\n`);
 }
