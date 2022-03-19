@@ -6,8 +6,7 @@ function renderPerson(outStream, person) {
 
     result.push(`<p>${person.name}</p>`);
     result.push(renderPhoto(person.photo));
-    result.push(`<p>제목: ${person.photo.title}</p>`);
-    result.push(emitPhotoData(person.photo));
+    result.push(zznew(person.photo));
 
     return result.join("\n")
 }
@@ -29,7 +28,7 @@ function emitPhotoData(aPhoto) {
     return result.join("\n");
 }
 
-function zznew() {
+function zznew(p) {
     return [
         `<p>제목: ${p.title}</p>`,
         emitPhotoData(p),
