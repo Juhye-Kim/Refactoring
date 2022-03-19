@@ -31,6 +31,7 @@ function emitPhotoData(aPhoto) {
 function zznew(p) {
     return [
         `<p>제목: ${p.title}</p>`,
-        emitPhotoData(p),
+        `<p>위치: ${aPhoto.location}</p>`
+        `<p>날짜: ${aPhoto.date.toDateString()}</p>`
     ].join("\n");
 }
