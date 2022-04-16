@@ -2,8 +2,9 @@ function acquireData(input) {
     const lines = input.split("\n");  // collection
     let firstLine = true;
     const result = [];
+    const loopItems = lines;
 
-    for (const line of lines) {
+    for (const line of loopItems) {
         if (firstLine) {
             firstLine = false;
             continue;
