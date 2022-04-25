@@ -11,3 +11,4 @@
 - [06. 기본적인 리팩터링](./Chapter06/README.md)
 - [07. 캡슐화](./Chapter07/README.md)
 - [08. 기능 이동](./Chapter08/README.md)
+- [09. 데이터 조직화](./Chapter09/README.md)
