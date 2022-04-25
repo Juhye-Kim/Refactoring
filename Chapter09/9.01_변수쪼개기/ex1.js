@@ -13,8 +13,8 @@ function distanceTravelled(scenario, time) {
 
     if (secondaryTime > 0) {  // 두번째 힘 반영해 다시 계산
         let primaryVelocity = primaryAcceleration * scenario.delay;
-        let acc = (scenario.primaryForce + scenario.secondaryForce) / scenario.mass;  // 두번째 힘까지 반영된 후의 가속도
-        result += primaryVelocity * secondaryTime + 0.5 * acc * secondaryTime * secondaryTime;
+        const secondaryAcceleration = (scenario.primaryForce + scenario.secondaryForce) / scenario.mass;  // 두번째 힘까지 반영된 후의 가속도
+        result += primaryVelocity * secondaryTime + 0.5 * secondaryAcceleration * secondaryTime * secondaryTime;
     }
 
     return result;
