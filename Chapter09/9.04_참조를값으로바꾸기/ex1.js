@@ -41,4 +41,11 @@ class TelephoneNumber {
     set number(arg) {
         this._number = arg;
     }
+
+    // 참조값을 값 기반으로 동치성 비교
+    equals(other) {
+        if (!(other instanceof TelephoneNumber)) return false;
+
+        return this.areaCode === other.areaCode && this.number === other.number;
+    }
 }
