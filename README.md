@@ -12,3 +12,4 @@
 - [07. 캡슐화](./Chapter07/README.md)
 - [08. 기능 이동](./Chapter08/README.md)
 - [09. 데이터 조직화](./Chapter09/README.md)
+- [10. 조건부 로직 간소화](./Chapter10/README.md)
