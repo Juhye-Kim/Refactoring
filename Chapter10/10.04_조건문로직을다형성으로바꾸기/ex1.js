@@ -15,7 +15,7 @@ function speeds(birds) {
  * @returns {string} plumage
  */
 function plumage(bird) {
-    return new Bird(bird).plumage;
+    return createBird(bird).plumage;
 }
 
 /**
@@ -24,7 +24,7 @@ function plumage(bird) {
  * @returns {number | null} speed 
  */
 function airSpeedVelocity(bird) {
-    return new Bird(bird).airSpeedVelocity;
+    return createBird(bird).airSpeedVelocity;
 }
 
 class Bird {
