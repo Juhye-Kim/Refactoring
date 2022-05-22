@@ -37,16 +37,7 @@ class Bird {
     }
 
     get airSpeedVelocity() {
-        switch (bird.type) {
-            case '유럽 제비':
-                return 35;
-            case '아프리카 제비':
-                return 40 - 2 * bird.numberOfCoCounts;
-            case '노르웨이 파랑 앵무':
-                return (bird.isNailed) ? 0 : 10 + bird.voltage / 10;
-            default:
-                return null;
-        }
+        return null;
     }
 }
 
@@ -72,16 +63,28 @@ class EuropeanSwallow extends Bird {
     get plumage() {
         return "보통이다";
     }
+
+    get airSpeedVelocity() {
+        return 35;
+    }
 }
 
 class AfricanSwallow extends Bird {
     get plumage() {
         return (this.numberOfCoCounts > 2) ? "지쳤다" : "보통이다";
     }
+
+    get airSpeedVelocity() {
+        return 40 - 2 * bird.numberOfCoCounts;
+    }
 }
 
 class NorwegianBlueParrot extends Bird {
     get plumage() {
         return (this.voltage > 100) ? "그을렸다" : "예쁘다";
+    }
+
+    get airSpeedVelocity() {
+        return (bird.isNailed) ? 0 : 10 + bird.voltage / 10;
     }
 }
