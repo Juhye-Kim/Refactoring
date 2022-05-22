@@ -2,11 +2,15 @@
  * 새의 종에 따라 비행 속도, 깃털 상태를 알려주는 프로그램
  */
 function plumages(birds) {
-    return new Map(birds.map(b => [b.name, plumage(b)]));
+    return new Map(birds
+                    .map(b => createBird(b)))
+                    .map(bird => [bird.name, bird.plumage]);
 }
 
 function speeds(birds) {
-    return new Map(birds.map(b => [b.name, airSpeedVelocity(b)]));
+    return new Map(birds
+        .map(b => createBird(b)))
+        .map(bird => [bird.name, bird.airSpeedVelocity]);
 }
 
 /**
