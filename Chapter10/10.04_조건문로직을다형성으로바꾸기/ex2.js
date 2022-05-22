@@ -89,5 +89,8 @@
 
         return result;
     }
-
  }
+
+class ExperiencedChinaRating extends Rating {
+
+}
