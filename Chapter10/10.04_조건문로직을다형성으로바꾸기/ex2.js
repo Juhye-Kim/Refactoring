@@ -10,7 +10,7 @@
      {zone: "아프리카", profit: 7},
  ];
 
- const myRating = new Rating(voyage, history).value;
+ const myRating = createRating(voyage, history).value;
 
  class Rating {
     constructor(voyage, history) {
