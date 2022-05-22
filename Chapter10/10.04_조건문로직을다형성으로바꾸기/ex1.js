@@ -11,7 +11,7 @@ function speeds(birds) {
 
 /**
  * 깃털 상태
- * @param {string} bird 
+ * @param {object} bird 
  * @returns {string} plumage
  */
 function plumage(bird) {
@@ -20,7 +20,7 @@ function plumage(bird) {
 
 /**
  * 비행 속도
- * @param {string} bird 
+ * @param {object} bird 
  * @returns {number | null} speed 
  */
 function airSpeedVelocity(bird) {
@@ -57,4 +57,34 @@ class Bird {
                 return null;
         }
     }
+}
+
+/**
+ * 적합한 서브클래스 인스턴스를 만들어줄 factory 함수
+ * @param {object} bird 
+ * @returns {Bird}
+ */
+function createBird(bird) {
+    switch (bird.type) {
+        case '유럽 제비':
+            return new EuropeanSwallow(bird);
+        case '아프리카 제비':
+            return new AfricanSwallow(bird);
+        case '노르웨이 파랑 앵무':
+            return new NorwegianBlueParrot(bird);
+        default:
+            return new Bird(bird);
+    }
+}
+
+class EuropeanSwallow extends Bird {
+
+}
+
+class AfricanSwallow extends Bird {
+
+}
+
+class NorwegianBlueParrot extends Bird {
+
 }
