@@ -34,6 +34,14 @@ class UnknownCustomer {
     get name() {
         return "거주자";
     }
+
+    get billingPlan() {
+        return registry.billingPlans.basic;
+    }
+
+    set billingPlan(arg) {
+        // 무시
+    }
 }
 
 function isUnknown(arg) {
@@ -48,10 +56,10 @@ const aCustomer = site.customer;
 const customerName = aCustomer.name;
 
 // client2
-const plan = isUnknown(aCustomer) ? registry.billingPlans.basic : aCustomer.billingPlan;
+const plan = aCustomer.billingPlan;
 
 // client3
-if (!isUnknown(aCustomer)) aCustomer.billingPlan = newPlan;
+aCustomer.billingPlan = newPlan;
 
 // client4
 const weeksDelinquent = isUnknown(aCustomer) ? 0 : aCustomer.paymentHistory.weeksDelinquentInLastYear;
