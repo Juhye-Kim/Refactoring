@@ -30,6 +30,10 @@ class UnknownCustomer {
     get isUnknown() {
         return true;
     }
+
+    get name() {
+        return "거주자";
+    }
 }
 
 function isUnknown(arg) {
@@ -41,10 +45,7 @@ function isUnknown(arg) {
 
 // client1
 const aCustomer = site.customer;
-
-let customerName;
-if (isUnknown(aCustomer)) customerName = "거주자";
-else customerName = aCustomer.name;
+const customerName = aCustomer.name;
 
 // client2
 const plan = isUnknown(aCustomer) ? registry.billingPlans.basic : aCustomer.billingPlan;
