@@ -20,6 +20,16 @@ class Customer {
     get paymentHistory() {
         return this._paymentHistory;  // 납부 이력
     }
+
+    get isUnknown() {
+        return false;
+    }
+}
+
+class UnknownCustomer {
+    get isUnknown() {
+        return true;
+    }
 }
 
 // client1
