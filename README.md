@@ -13,3 +13,5 @@
 - [08. 기능 이동](./Chapter08/README.md)
 - [09. 데이터 조직화](./Chapter09/README.md)
 - [10. 조건부 로직 간소화](./Chapter10/README.md)
+- [11. API 리팩터링](./Chapter11/README.md)
+- [12. 상속 다루기](./Chapter12/README.md)
